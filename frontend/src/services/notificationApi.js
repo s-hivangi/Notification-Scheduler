@@ -1,23 +1,4 @@
-import axios from 'axios';
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/notifications';
-
-const apiClient = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-// Error handling interceptor
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    const message = error.response?.data?.message || error.message || 'An error occurred';
-    console.error('API Error:', message);
-    return Promise.reject(new Error(message));
-  }
-);
+import apiClient from '../API/apiclient';
 
 export const notificationApi = {
   // Create a new notification

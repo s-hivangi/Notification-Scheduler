@@ -12,7 +12,7 @@ function Debug() {
     setError(null);
     try {
       const data = await notificationApi.getHeapSnapshot();
-      setHeapData(data.data);
+      setHeapData(data.heap || []);
     } catch (err) {
       setError(err.message);
     } finally {

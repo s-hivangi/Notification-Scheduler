@@ -4,10 +4,25 @@ class MinHeap {
   }
 
   _compare(a, b) {
+    const aTime = new Date(a.scheduledTime).getTime();
+    const bTime = new Date(b.scheduledTime).getTime();
+
+    if (aTime !== bTime) {
+      return aTime < bTime;
+    }
+
+    const aImportance = Number.isInteger(a.importance) ? a.importance : 1;
+    const bImportance = Number.isInteger(b.importance) ? b.importance : 1;
+
+    if (aImportance !== bImportance) {
+      return aImportance > bImportance;
+    }
+
     if (a.priorityScore !== b.priorityScore) {
       return a.priorityScore > b.priorityScore;
     }
-    return new Date(a.scheduledTime).getTime() < new Date(b.scheduledTime).getTime();
+
+    return a._id && b._id ? a._id.toString() < b._id.toString() : false;
   }
 
   _swap(i, j) {

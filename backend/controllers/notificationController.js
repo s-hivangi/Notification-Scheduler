@@ -9,6 +9,7 @@ const toHeapItem = (notification) => ({
   message: notification.message,
   phone: notification.phone,
   scheduledTime: notification.scheduledTime,
+  importance: notification.importance,
   priorityScore: notification.priorityScore,
 });
 

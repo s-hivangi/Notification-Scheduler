@@ -28,6 +28,7 @@ const loadPendingIntoHeap = async () => {
         message: n.message,
         phone: n.phone,
         scheduledTime: n.scheduledTime,
+        importance: n.importance,
         priorityScore,
       });
 
@@ -91,6 +92,7 @@ const processNotification = async (item) => {
     message: doc.message,
     phone: doc.phone,
     scheduledTime: doc.scheduledTime,
+    importance: doc.importance,
     priorityScore: doc.priorityScore,
   });
 
